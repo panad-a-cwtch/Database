@@ -1,0 +1,95 @@
+--SELECT * FROM sakila.actor;
+
+--SELECT first_name, last_name 
+--	FROM sakila.actor 
+--	WHERE first_name = 'John';
+
+--SELECT first_name, last_name
+--	FROM sakila.actor
+--	WHERE last_name = 'Neeson';
+
+--SELECT * 
+--	FROM sakila.actor
+--	WHERE actor_id%10 = 0;
+
+--SELECT description	
+--	FROM sakila.film
+--	WHERE film_id = 100;
+
+--SELECT title 
+--	FROM sakila.film
+--	WHERE rating = 'R';
+
+--SELECT title 
+--	FROM sakila.film
+--	WHERE rating != 'R';
+
+--SELECT title, special_features
+--	FROM sakila.film
+--	WHERE special_features LIKE '%Deleted Scenes%';
+
+--SELECT last_name, COUNT(last_name) AS num_in_use
+--	FROM sakila.actor
+--	GROUP BY last_name
+--	HAVING COUNT(last_name) = 1;
+
+--SELECT last_name, COUNT(last_name) AS num_in_use
+--	FROM sakila.actor
+--	GROUP BY last_name
+--	HAVING COUNT(last_name) > 1;
+
+--SELECT actor_id, COUNT(actor_id) AS 'num_of_appearance'
+--	FROM sakila.film_actor
+--	GROUP BY actor_id
+--	ORDER BY 'num_of_appearance' DESC
+	
+--SELECT * FROM sakila.inventory i 
+--JOIN sakila.film f ON i.film_id=f.film_id 
+--WHERE i.store_id=1 AND f.title='Academy Dinosaur';
+
+--SELECT AVG(length) AS 'avg_film_length_in_mins'
+--	FROM sakila.film;
+	
+--SELECT AVG(length) FROM sakila.film f 
+--JOIN sakila.film_category fc ON f.film_id=fc.film_id 
+--GROUP BY fc.category_id;
+
+--SELECT COUNT(film_id) AS robot_films
+--FROM sakila.film
+--WHERE description LIKE '%robot%';
+	
+	--SELECT title, length
+	--FROM sakila.film
+	--ORDER BY length DESC;
+
+--SELECT COUNT(film_id) 
+--FROM sakila.film 
+--WHERE release_year = 2010;
+
+--SELECT CONCAT(first_name, ' ', last_name) AS full_name
+--FROM sakila.actor 
+--WHERE actor_id = 1
+
+--SELECT fa.actor_id, f.title 
+--FROM sakila.film_actor fa 
+--JOIN sakila.film f ON fa.film_id=f.film_id 
+--WHERE actor_id=(SELECT actor_id FROM sakila.actor 
+--WHERE first_name='Fred' AND last_name='Costner');
+
+--SELECT COUNT(film_id), store_id 
+--FROM sakila.inventory 
+--WHERE film_id=(SELECT film_id FROM sakila.film 
+--WHERE title='Bucket Brotherhood') 
+--GROUP BY store_id;
+
+
+--SELECT COUNT(DISTINCT(country)) 
+--AS distinct_countries FROM sakila.country;
+
+--SELECT name 
+--FROM sakila.language
+--ORDER BY name;
+
+--SELECT first_name, last_name 
+--FROM sakila.actor WHERE last_name 
+--LIKE '%son%' ORDER BY last_name;
